@@ -37,7 +37,7 @@ process PEPPER_MARGIN_DEEPVARIANT {
         -o "." \\
         -p "${prefix}" \\
         -t ${task.cpus} \\
-        --d_ids "0,1,3"
+        --d_ids "0" \\
         $gpu \\
         $args
 
