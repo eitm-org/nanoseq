@@ -37,6 +37,7 @@ process PEPPER_MARGIN_DEEPVARIANT {
         -o "." \\
         -p "${prefix}" \\
         -t ${task.cpus} \\
+        --gpus "cuda:0,1,3" \\
         $gpu \\
         $args
 
