@@ -3,9 +3,9 @@ process PEPPER_MARGIN_DEEPVARIANT {
     label 'process_high'
 
     if (params.deepvariant_gpu) {
-        container 'docker.io/kishwars/pepper_deepvariant:r0.7-gpu'
+        container 'docker.io/kishwars/pepper_deepvariant:r0.8-gpu'
     } else {
-        container 'docker.io/kishwars/pepper_deepvariant:r0.8'
+        container 'docker.io/kishwars/pepper_deepvariant:r0.8-gpu'
     }
 
     input:
@@ -37,6 +37,7 @@ process PEPPER_MARGIN_DEEPVARIANT {
         -o "." \\
         -p "${prefix}" \\
         -t ${task.cpus} \\
+        --gpus all \\
         $gpu \\
         $args
 
