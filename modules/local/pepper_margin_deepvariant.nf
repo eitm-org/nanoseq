@@ -38,6 +38,7 @@ process PEPPER_MARGIN_DEEPVARIANT {
         -p "${prefix}" \\
         -t ${task.cpus} \\
         --gpus "all" \\
+        --pepper_region_size 200000\\
         $gpu \\
         $args
 
