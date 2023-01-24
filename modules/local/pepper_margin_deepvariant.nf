@@ -38,7 +38,6 @@ process PEPPER_MARGIN_DEEPVARIANT {
         -p "${prefix}" \\
         -t ${task.cpus} \\
         --gpus "all" \\
-        --ont_r10_q20 \\
         $gpu \\
         $args
 
