@@ -22,6 +22,7 @@ workflow QCFASTQ_NANOPLOT_FASTQC {
     nanoplot_png     = Channel.empty()
     nanoplot_html    = Channel.empty()
     nanoplot_txt     = Channel.empty()
+    nanoplot_tsv     = Channel.empty()
     nanoplot_log     = Channel.empty()
     nanoplot_version = Channel.empty()
     if (!skip_nanoplot){
@@ -30,6 +31,7 @@ workflow QCFASTQ_NANOPLOT_FASTQC {
         nanoplot_html    = NANOPLOT.out.html
         nanoplot_txt     = NANOPLOT.out.txt
         nanoplot_log     = NANOPLOT.out.log
+        nanoplot_tsv     = NANOPLOT.out.tsv
         nanoplot_version = NANOPLOT.out.versions
     }
 
@@ -58,6 +60,7 @@ workflow QCFASTQ_NANOPLOT_FASTQC {
     nanoplot_png
     nanoplot_html
     nanoplot_txt
+    nanoplot_tsv
     nanoplot_log
     nanoplot_version
 

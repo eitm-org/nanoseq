@@ -41,6 +41,7 @@ workflow QCBASECALL_PYCOQC_NANOPLOT {
         nanoplot_html     = NANOPLOT.out.html
         nanoplot_txt      = NANOPLOT.out.txt
         nanoplot_log      = NANOPLOT.out.log
+        nanoplot_tsv      = NANOPLOT.out.tsv
         nanoplot_versions = NANOPLOT.out.versions
     }
 
@@ -49,8 +50,9 @@ workflow QCBASECALL_PYCOQC_NANOPLOT {
     pycoqc_multiqc
     pycoqc_version
 
-    nanoplot_png
+    // nanoplot_png
     nanoplot_html
     nanoplot_txt
     nanoplot_log
+    nanoplot_tsv
 }

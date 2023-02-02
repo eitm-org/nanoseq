@@ -15,6 +15,7 @@ process NANOPLOT {
     //tuple val(meta), path("$output_png") , emit: png
     tuple val(meta), path("$output_txt") , emit: txt
     tuple val(meta), path("$output_log") , emit: log
+    tuple val(meta), path("$output_tsv") , emit: tsv
     path  "versions.yml"           , emit: versions
 
     script:
@@ -28,6 +29,7 @@ process NANOPLOT {
     output_png  = output_dir+"/*.png"
     output_txt  = output_dir+"/*.txt"
     output_log  = output_dir+"/*.log"
+    output_tsv  = output_dir+"/*.tsv.gz"
     """
     NanoPlot \\
         -t $task.cpus \\
