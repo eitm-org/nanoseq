@@ -32,7 +32,8 @@ process NANOPLOT {
     NanoPlot \\
         -t $task.cpus \\
         $input_file \\
-        -o $output_dir
+        -o $output_dir \\
+        --raw
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         nanoplot: \$(echo \$(NanoPlot --version 2>&1) | sed 's/^.*NanoPlot //; s/ .*\$//')
