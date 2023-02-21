@@ -29,11 +29,23 @@ process GUPPY {
     def config   = "--flowcell $params.flowcell --kit $params.kit"
     if (params.guppy_config) config = file(params.guppy_config).exists() ? "--config ./$guppy_config" : "--config $params.guppy_config"
     def model    = ""
-    if (params.guppy_model)  model  = file(params.guppy_model).exists() ? "--model ./$guppy_model" : "--model $params.guppy_model"
+    if (params.guppy_model)  model  = file(params.guppy_model).exists() ?  "--model $params.guppy_model" : "--model ./$guppy_model"
     """
+    guppy_basecaller \\
+        --input_path $fast5_dir_path \\
+        --save_path ./basecalling \\
+        --records_per_fastq 0 \\
+        --compress_fastq \\
+        $barcode_kit \\
+        $trim_barcodes \\
+        $proc_options \\
+        $barcode_ends \\
+        $config \\
+        $model
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        guppy: \$(echo \$(guppy_basecaller --print_workflows 2>&1) | sed -r 's/.{81}//')
+        guppy: \$(echo \$(guppy_basecaller --version 2>&1) | sed -r 's/.{81}//')
     END_VERSIONS
 
     ## Concatenate fastq files
