@@ -33,8 +33,7 @@ process GUPPY {
     """
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        guppy: \$(echo \$(guppy_basecaller --print_workflows 2>&1) | sed -r 's/.{81}//')
-        // guppy: \$(echo \$(guppy_basecaller --version 2>&1) | sed -r 's/.{81}//')
+        guppy: \$(echo \$(guppy_basecaller --print_workflows 2>&1)')
     END_VERSIONS
 
     ## Concatenate fastq files
